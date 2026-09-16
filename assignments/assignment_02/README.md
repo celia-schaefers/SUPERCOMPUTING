@@ -69,7 +69,7 @@ and uploaded both .gz files I just downloaded by dragging them from the local co
 
 For this task we needed to check the permissions of the files and ensure they would be readable by the instructor and everyone else
 
-**Actions**
+**Actions:**
 
 cd ~/SUPERCOMPUTING/assignments/assignment_02/data/
 
@@ -89,7 +89,7 @@ Task 4: Verify File Integrity with md5sum
 
 For this task we needed to confirm that the files transferred correctly by using md5sum on the local and HPC versions.
 
-**Actions**
+**Actions:**
 
 Locally
 
@@ -99,7 +99,7 @@ md5sum GCF_000005845.2_ASM584v2_genomic.gff.gz
 
 md5sum GCF_000005845.2_ASM584v2_genomic.fna.gz
 
-** Local md5sum **
+**Local md5sum**
 
 0f52ffc94af5ddf544ff89cc6f546b0c *GCF_000005845.2_ASM584v2_genomic.gff.gz
 
@@ -113,7 +113,8 @@ md5sum GCF_000005845.2_ASM584v2_genomic.gff.gz
 
 md5sum GCF_000005845.2_ASM584v2_genomic.fna.gz
 
-** HPC md5sum **
+**HPC md5sum**
+
 0f52ffc94af5ddf544ff89cc6f546b0c  GCF_000005845.2_ASM584v2_genomic.gff.gz
 
 c13d459b5caa702ff7e1f26fe44b8ad7  GCF_000005845.2_ASM584v2_genomic.fna.gz
@@ -130,7 +131,7 @@ For this task we needed to add the following aliases to our start up file:
 - alias ll='ls -alFh --group-directories-first'
 
 
-**Actions**
+**Actions:**
 
 This wasn't working for me with ~/.bashrc so I checked my shell with
 
@@ -165,7 +166,7 @@ Here is what each added alias does:
 _____________________________________________________________________
 Task 6: Document Everything in README.md
 
-**Actions**
+**Actions:**
 
 Wrote what you are reading here! nano READMR.md -> edited -> ^o -> enter -> ^o
 
