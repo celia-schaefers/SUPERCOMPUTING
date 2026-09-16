@@ -89,7 +89,6 @@ Task 4: Verify File Integrity with md5sum
 
 For this task we needed to confirm that the files transferred correctly by using md5sum on the local and HPC versions.
 
-
 **Actions**
 
 Locally
@@ -100,7 +99,7 @@ md5sum GCF_000005845.2_ASM584v2_genomic.gff.gz
 
 md5sum GCF_000005845.2_ASM584v2_genomic.fna.gz
 
-## Local md5sum
+** Local md5sum **
 
 0f52ffc94af5ddf544ff89cc6f546b0c *GCF_000005845.2_ASM584v2_genomic.gff.gz
 
@@ -114,7 +113,7 @@ md5sum GCF_000005845.2_ASM584v2_genomic.gff.gz
 
 md5sum GCF_000005845.2_ASM584v2_genomic.fna.gz
 
-## HPC md5sum
+** HPC md5sum **
 0f52ffc94af5ddf544ff89cc6f546b0c  GCF_000005845.2_ASM584v2_genomic.gff.gz
 
 c13d459b5caa702ff7e1f26fe44b8ad7  GCF_000005845.2_ASM584v2_genomic.fna.gz
