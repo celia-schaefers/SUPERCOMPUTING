@@ -168,14 +168,18 @@ Task 6: Document Everything in README.md
 
 **Actions**
 
-Wrote what you are reading here! nano READMR.md -> edited -> ^O -> enter -> ^X
+Wrote what you are reading here! nano READMR.md -> edited -> ^o -> enter -> ^o
 
 ## Directory Structure
 
 └── assignment_02/
+
 	├── data/
+	
 		├── GCF_000005845.2_ASM584v2_genomic.fna.gz
+		
 		└── GCF_000005845.2_ASM584v2_genomic.gff.gz
+
 	└── README.md
 
 ## Reflection
