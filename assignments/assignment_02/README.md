@@ -171,17 +171,13 @@ Task 6: Document Everything in README.md
 Wrote what you are reading here! nano READMR.md -> edited -> ^o -> enter -> ^o
 
 ## Directory Structure
-
+```
 └── assignment_02/
-
 	├── data/
-	
 		├── GCF_000005845.2_ASM584v2_genomic.fna.gz
-		
 		└── GCF_000005845.2_ASM584v2_genomic.gff.gz
-
 	└── README.md
-
+```
 ## Reflection
 
 For this assignment I took notes on commands and actions I took as I did them, which was a big help in writing the README at the end. I read through the instruction document fully before starting which also helped with documenation. Starting the work earlier would have been better to give cushion time when steps needed some puzzling out. I also need to work on moving files around, WinSCP and ftp from the command line are new and it would be benefical to practice.
