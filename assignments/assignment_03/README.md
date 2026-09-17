@@ -87,3 +87,10 @@ grep "^>" GCF_000001735.4_TAIR10.1_genomic.fna | sort | head -1
 - grep "^>" GCF_000001735.4_TAIR10.1_genomic.fna >> headers_GCF_000001735.4_TAIR10.1_genomic
 - grep -v "^>" GCF_000001735.4_TAIR10.1_genomic.fna >> sequences_GCF_000001735.4_TAIR10.1_genomic.fna                                      170 [bora] head -3 headers_GCF_000001735.4_TAIR10.1_genomic
 - paste headers_GCF_000001735.4_TAIR10.1_genomic sequences_GCF_000001735.4_TAIR10.1_genomic.fna > columns_GCF_000001735.4_TAIR10.1_genomic.fna
+
+## Reflection
+
+To answer the questions I pulled up the list of commands learned in class and examples we did to work off of. When I wasn’t sure how to do something specific like get the line after a match with grep, I looked into the flags under the command that seemed closest with —help. Throughout the assignment I got much better at using the Linux commands without looking at the list, and breaking the tasks down into steps that could be piped together. I didn’t realize before this activity just how much you could do with grep. I struggled a bit to remember I needed the name of the file in the first command. I think the commands with specific flags were the hardest to figure out. 
+
+These skills are essential in computational work since they allow navigating and understanding huge data files without running full scripts. Command line is a lot faster than using a graphical interphase, scrolling through all the data or having to create a bash script with the proper header and submit it. If someone wanted to automate these commands to answer the questions, they could be added to a file and ran in one go with the output printed to the screen or saved for later. I am not sure exactly what the best way of doing this would be (an actual script or parsing a file and running the commands in terminal)
+
