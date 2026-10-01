@@ -27,14 +27,17 @@ assignment_05/
 ## How to Run the Pipeline
 
 1. Log in to `bora` and go to the assignment directory:
-```cd ~/SUPERCOMPUTING/assignments/assignment_05
+```
+cd ~/SUPERCOMPUTING/assignments/assignment_05
 ```
 2. Make sure `fastp` is available (`fastp --version`)
 3. Make the scripts executable:
-```chmod +x pipeline.sh scripts/*.sh
+```
+chmod +x pipeline.sh scripts/*.sh
 ```
 4. Run:
-```./pipeline.sh
+```
+./pipeline.sh
 ```
 
 **What it will do:** download the tarball, extract the FASTQ files into `data/raw/`, delete the tarball, then trim every sample. Trimmed reads go to `data/trimmed/` and one HTML quality report per sample goes to `log/`.
