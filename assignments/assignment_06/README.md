@@ -2,28 +2,6 @@
 
 > Assembling *E. coli* phage genomes from Oxford Nanopore reads with **Flye v2.9.6**, installed three different ways: **conda**, **local build**, and **HPC module**.
 
-<!-- One or two sentences: what this assignment does and why. -->
-
----
-
-## Table of Contents
-
-- [Directory Structure](#directory-structure)
-- [How to Run](#how-to-run)
-- [Task 1: Directory Setup](#task-1-directory-setup)
-- [Task 2: Download Raw ONT Data](#task-2-download-raw-ont-data)
-- [Task 3: Flye Local Build](#task-3-flye-local-build)
-- [Task 4: Flye Conda Install](#task-4-flye-conda-install)
-- [Task 5: Designing the Flye Command](#task-5-designing-the-flye-command)
-- [Task 6: Running Flye Three Ways](#task-6-running-flye-three-ways)
-- [Task 7: Comparing the Log Files](#task-7-comparing-the-log-files)
-- [Task 8: The Pipeline Script](#task-8-the-pipeline-script)
-- [Task 9: Clean Re-run](#task-9-clean-re-run)
-- [Task 10: Documentation](#task-10-documentation)
-- [Task 11: Pushing to GitHub](#task-11-pushing-to-github)
-- [Reflection](#reflection)
-- [AI Usage](#ai-usage)
-
 ---
 
 ## Directory Structure
@@ -69,15 +47,12 @@ assignment_06/
 
 ## How to Run
 
-**Requirements:** W&M VPN (GlobalProtect, `gp.wm.edu`), a bora account, and `git`, `gcc`, and `make` (all available on bora).
-
 ```bash
-# 1. Clone the repo and move into this assignment
-git clone <repo-url>
+
 cd SUPERCOMPUTING/assignments/assignment_06
 
-# 2. Run the full pipeline (must be run from assignment_06/)
 bash pipeline.sh
+
 ```
 
 **What it does:**
@@ -88,24 +63,21 @@ bash pipeline.sh
 4. Runs Flye three times (conda, module, local), keeping only the assembly and log for each
 5. Prints the last 10 lines of each Flye log to the screen
 
-<!-- Approximate total runtime: ___ -->
-
-> **Note:** Never run `conda init`. The scripts load conda with `module load miniforge3` instead.
+When tested, each method took about 4 minutes, with conda finishing first, then module, then local. 
 
 ---
 
 ## Task 1: Directory Setup
 
-<!-- How you set up the directory structure. -->
+Used mkdir and touch to follow the given directory structure for eveything not created by a script (scripts, README)
 
 ---
 
 ## Task 2: Download Raw ONT Data
 
 - **Dataset:** SRR33939694 ([SRX29141853](https://www.ncbi.nlm.nih.gov/sra/SRX29141853[accn]))
-- **Source:** <!-- URL -->
 - **Script:** `scripts/01_download_data.sh`
-
+- **URL:** `https://zenodo.org/records/15730819/files/SRR33939694.fastq.gz?download=1`
 <!-- What the data is, and how the script gets it. -->
 
 ---
@@ -123,7 +95,6 @@ bash pipeline.sh
 
 - **Script:** `scripts/02_flye_2.9.6_conda_install.sh`
 - **Environment:** `flye-env`
-- **Version installed (`flye -v`):** <!-- ___ -->
 
 <!-- Steps: load miniforge3, create with mamba, activate with conda, export flye-env.yml, deactivate. -->
 
@@ -137,25 +108,15 @@ flye --nano-hq ./data/SRR33939694.fastq.gz \
      --threads 6 \
      --out-dir <output_dir>
 ```
-
-| Argument | Why |
-|---|---|
-| `--nano-hq` | <!-- --> |
-| `--meta` | <!-- --> |
-| `--threads 6` | <!-- --> |
-| `--out-dir` | <!-- --> |
-
-- **Expected coliphage genome size:** <!-- ___ kb -->
-
 ---
 
 ## Task 6: Running Flye Three Ways
 
-| Method | Script | How Flye is accessed | Output |
-|---|---|---|---|
-| Conda | `03_run_flye_conda.sh` | <!-- --> | `assemblies/assembly_conda/` |
-| Module | `03_run_flye_module.sh` | <!-- --> | `assemblies/assembly_module/` |
-| Local | `03_run_flye_local.sh` | <!-- --> | `assemblies/assembly_local/` |
+| Method | Script | Output |
+|---|---|---|
+| Conda | `03_run_flye_conda.sh` | `assemblies/assembly_conda/` |
+| Module | `03_run_flye_module.sh` | `assemblies/assembly_module/` |
+| Local | `03_run_flye_local.sh` | `assemblies/assembly_local/` |
 
 <!-- How each script cleans up its output directory. -->
 
@@ -170,15 +131,11 @@ for log in $(find ./assemblies -name '*_flye.log' | sort); do
 done
 ```
 
-| Method | Total length | Fragments | N50 | Largest contig | Mean coverage |
-|---|---|---|---|---|---|
-| Conda | | | | | |
-| Module | | | | | |
-| Local | | | | | |
-
-**Observations:**
-
-<!-- Did the results match? Anything different between methods? -->
+| Assembly | Timestamp | Total length | Fragments | Fragments N50 | Largest frg | Scaffolds | Mean coverage | Final assembly |
+|---|---|---|---|---|---|---|---|---|
+| assembly_conda | 2026-10-19 20:10:35 | 91713 | 2 | 47428 | 47428 | 0 | 422 | `/sciclone/home/caschaefers/SUPERCOMPUTING/assignments/assignment_06/assemblies/assembly_conda/assembly.fasta` |
+| assembly_local | 2026-10-19 20:20:23 | 91713 | 2 | 47428 | 47428 | 0 | 422 | `/sciclone/home/caschaefers/SUPERCOMPUTING/assignments/assignment_06/assemblies/assembly_local/assembly.fasta` |
+| assembly_module | 2026-10-19 20:15:29 | 91713 | 2 | 47428 | 47428 | 0 | 422 | `/sciclone/home/caschaefers/SUPERCOMPUTING/assignments/assignment_06/assemblies/assembly_module/assembly.fasta` |
 
 ---
 
@@ -186,11 +143,13 @@ done
 
 <!-- How pipeline.sh runs everything in order without needing user input. -->
 
+The pipeline runs each script from bash one after another.
+
 ---
 
 ## Task 9: Clean Re-run
 
-<!-- Did you delete everything except the scripts and re-run? Did it work on the first try? What did you fix? -->
+Deleted everything and reran from pipeline script.
 
 ---
 
@@ -210,27 +169,15 @@ The data files and Flye outputs are excluded by the repository `.gitignore` (`*.
 
 ### Challenges
 
-<!-- -->
+I ran into some naming differences that had to be fixed. Having so many files did mean alternating between them in terminal was a little tedious. 
 
 ### New Things I Learned
 
-<!-- -->
+Praticed creating full pipeline with organized structure and tested using ai agent to help with code and orchestration.
 
 ### Thoughts on the Three Methods
 
-| Method | Pros | Cons |
-|---|---|---|
-| Conda | | |
-| Local build | | |
-| Module | | |
-
-**Which do I prefer?**
-
-<!-- -->
-
-**Which will I try first on the next assignment?**
-
-<!-- -->
+Conda did finish the fastest, though I feel like it cannot always be trusted. I would say we have the most control over the locally managed version of the software, but it also is work to set up and maintain. I think which I use will depend on what tool and how I am using it, conda for common tools and local for things that are less common and I want full control over versioning and such.
 
 ---
 
@@ -238,6 +185,4 @@ The data files and Flye outputs are excluded by the repository `.gitignore` (`*.
 
 <!-- Which AI tools you used, what you used them for, and what you verified or changed yourself. -->
 
-| Tool | What I used it for |
-|---|---|
-| | |
+Used Claude Opus 5.5 to review and edit scripts, create README structure, and test agent submission to SLURM.
