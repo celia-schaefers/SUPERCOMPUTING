@@ -1,0 +1,12 @@
+# Sequencing data — never push to GitHub
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+
+# Assignment 6 data
+assignments/assignment_06/data/
+assignments/assignment_06/scripts/data/
+
+# SLURM job logs
+slurm-*.out
