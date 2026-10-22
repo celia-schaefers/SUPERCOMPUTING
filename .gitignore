@@ -10,3 +10,10 @@ assignments/assignment_06/scripts/data/
 
 # SLURM job logs
 slurm-*.out
+
+# Assignment 7 data and large alignment files
+assignments/assignment_07/data/raw/
+assignments/assignment_07/data/clean/
+assignments/assignment_07/data/dog_reference/
+*.sam
+*.bam
